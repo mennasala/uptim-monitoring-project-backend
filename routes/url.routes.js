@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const auth = require("../app/middleware/auth.middleware");
-const urlController = require("../app/controller/url.Controller");
+const urlController = require("../app/controller/url.controller");
 const reportControllel = require("../monitoring/report");
 
 // // Route to get all URLs for a specific user
