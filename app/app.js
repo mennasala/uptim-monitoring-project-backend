@@ -15,6 +15,11 @@ app.use("/api/user/", userRoutes);
 app.use("/api/url/", urlRoutes);
 
 app.all("*", (req, res) => {
+  console.log(req.url);
+  console.log(req.method);
+  console.log(
+    "*****************************************************************"
+  );
   res.status(404).send({
     apisStatus: false,
     message: "Invalid URL",
