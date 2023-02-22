@@ -1,0 +1,325 @@
+{
+	"info": {
+		"_postman_id": "70539498-9cc6-4a19-9709-feb7370d7ff2",
+		"name": "time-up-project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23310010"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"aya\",\r\n    \"email\":\"ayas68471@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DBURL}}user/register",
+							"host": [
+								"{{DBURL}}user"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"ayas68471@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DBURL}}user/login",
+							"host": [
+								"{{DBURL}}user"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2YwYzMyNzE0ZTk1NjA3ZjNiNmJjYTQiLCJpYXQiOjE2NzY3MjM1MjV9.JS8XsFG37oI6RsvNltzPLgnmrBYFTVVjudUUSMAvWEg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{DBURL}}/user/logout",
+							"host": [
+								"{{DBURL}}"
+							],
+							"path": [
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify your registeration",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "URL",
+			"item": [
+				{
+					"name": "Create Url",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"youtube\",\r\n  \"url\": \"https://www.youtube.com\",\r\n  \"protocol\": \"HTTPS\",\r\n  \"timeout\": 5,\r\n  \"interval\": 10,\r\n  \"threshold\": 1,\r\n  \"ignoreSSL\": false,\r\n  \"tags\": [\"search\", \"engine\"]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DBURL}}url/createUrl",
+							"host": [
+								"{{DBURL}}url"
+							],
+							"path": [
+								"createUrl"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Urls related to the user user who created the check",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{DBURL}}url/getAllUrls",
+							"host": [
+								"{{DBURL}}url"
+							],
+							"path": [
+								"getAllUrls"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get specific Url related to the user user who created the check",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{DBURL}}url/getUrl/63f1dddd15faf792a9d26079",
+							"host": [
+								"{{DBURL}}url"
+							],
+							"path": [
+								"getUrl",
+								"63f1dddd15faf792a9d26079"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Url by ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Google\",\r\n  \"url\": \"https://www.google.com\",\r\n  \"protocol\": \"HTTPS\",\r\n  \"timeout\": 6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DBURL}}url/updatUrl/63f1dddd15faf792a9d26079",
+							"host": [
+								"{{DBURL}}url"
+							],
+							"path": [
+								"updatUrl",
+								"63f1dddd15faf792a9d26079"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete URL by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{DBURL}}url/deleteUrl/63f1e64d36859f4e520e12eb",
+							"host": [
+								"{{DBURL}}url"
+							],
+							"path": [
+								"deleteUrl",
+								"63f1e64d36859f4e520e12eb"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "Get report",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{DBURL}}url/report",
+							"host": [
+								"{{DBURL}}url"
+							],
+							"path": [
+								"report"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get report of URL by tag",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{DBURL}}url/report/tag/socialmedia",
+							"host": [
+								"{{DBURL}}url"
+							],
+							"path": [
+								"report",
+								"tag",
+								"socialmedia"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "DBURL",
+			"value": "http://localhost:3000/api/",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2YzNDc2Mzc4NjI4NjMyYmI5MjM2YWEiLCJpYXQiOjE2NzY5MDU1MTl9.zkN59jHbdhT9e4eUMZekUlyJxa_i2IFK1pqTPhlKVZ0",
+			"type": "string"
+		}
+	]
+}
